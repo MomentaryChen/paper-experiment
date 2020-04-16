@@ -18,8 +18,12 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.typeText;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
+
 import static junit.framework.TestCase.assertNotNull;
+import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -84,9 +88,8 @@ public class LoginTest {
                 .perform(click());
 
         // Step10 Change to dashboard
-        TextView text= (TextView) dashboardActivityTestRule.getActivity().findViewById(R.id.loginTextView);
-        assertNotNull(text);
+        onView(withId(R.id.loginTextView)).check(matches(withText("Login Successful")));
+
         Spoon.screenshot( mActivityRule.getActivity(), "LoginSuccessful");
-        assertEquals(text.getText().toString(), "Login Successful");
     }
 }
