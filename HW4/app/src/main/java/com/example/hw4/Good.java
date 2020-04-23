@@ -1,38 +1,37 @@
 package com.example.hw4;
 
 public class Good {
-    private String names;
-    private int prices;
+    private String name;
+    private int price;
+    private int image;
 
-    public Good(String names, int prices, int images) {
-        this.names = names;
-        this.prices = prices;
-        this.images = images;
+    public Good(String name, int price, int image) {
+        this.name = name;
+        this.price = price;
+        this.image = image;
     }
 
-    private int images;
-
-    public String getNames() {
-        return names;
+    public String getName() {
+        return name;
     }
 
-    public void setNames(String names) {
-        this.names = names;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getPrices() {
-        return prices;
+    public int getPrice() {
+        return price;
     }
 
-    public void setPrices(int prices) {
-        this.prices = prices;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public int getImages() {
-        return images;
+    public int getImage() {
+        return image;
     }
 
-    public void setImages(int images) {
-        this.images = images;
+    public void setImage(int image) {
+        this.image = image;
     }
 }
