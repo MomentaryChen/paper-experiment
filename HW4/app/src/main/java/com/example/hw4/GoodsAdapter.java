@@ -56,11 +56,9 @@ public class GoodsAdapter implements ListAdapter {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.goods_list_item, null);
         }
 
-        // 找到name and price TextView
         TextView name = (TextView) convertView.findViewById(R.id.name);
         TextView price = (TextView) convertView.findViewById(R.id.price);
         // 取出Good類別
-        Log.v("Position", Integer.toString(position));
         Good good = this.goods[position];
         name.setText(good.getName());
         price.setText(String.valueOf(good.getPrice()));

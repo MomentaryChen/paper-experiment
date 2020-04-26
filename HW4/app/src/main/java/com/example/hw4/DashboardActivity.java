@@ -2,7 +2,12 @@ package com.example.hw4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -26,5 +31,17 @@ public class DashboardActivity extends AppCompatActivity {
         };
         GoodsAdapter adapter = new GoodsAdapter(goods);
         goodsList.setAdapter(adapter);
+
+        goodsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                Log.v("AAA","AAA");
+                Intent intent = new Intent(DashboardActivity.this, DescriptionActivity.class);
+//                intent.putExtra(EXTRA_MESSAGE, message);
+                startActivity(intent);
+            }
+        });
     }
+
 }
