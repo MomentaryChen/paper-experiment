@@ -15,7 +15,7 @@ import java.io.Console;
 public class MainActivity extends AppCompatActivity {
     Button register ;
     Button login;
-    TextView warning;
+    TextView feedback;
     EditText account;
     EditText password;
     LoginViewModel loginViewModel = LoginViewModel.getInstance();
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         login = findViewById(R.id.login);
         account = findViewById(R.id.editAccount);
         password = findViewById(R.id.editPassword);
-        warning = findViewById(R.id.warning);
+        feedback = findViewById(R.id.feedback);
         setOnClickListener();
     }
     public void setOnClickListener() {
@@ -48,10 +48,11 @@ public class MainActivity extends AppCompatActivity {
                  Intent it = new Intent();
                  it.setClass(MainActivity.this, DashboardActivity.class);
                  startActivity(it);
+                 finish();
              } else{
                  Log.v("Error", "Is Not User");
                  loginViewModel.showUser();
-                 warning.setVisibility(View.VISIBLE);
+                 feedback.setVisibility(View.VISIBLE);
              }
          }
     });

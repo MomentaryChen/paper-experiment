@@ -1,21 +1,25 @@
 package com.example.hw4;
 
 import android.database.DataSetObserver;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 
-public class GoodsAdapter implements Adapter {
+import androidx.annotation.Nullable;
+
+public class GoodsAdapter implements ListAdapter {
     private Good[] goods;
 
     public GoodsAdapter(Good[] goods){
-       this.goods = goods;
+        super();
+        this.goods = goods;
     }
 
-    @Override
+       @Override
     public void registerDataSetObserver(DataSetObserver observer) {
 
     }
@@ -49,29 +53,21 @@ public class GoodsAdapter implements Adapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         // 檢查convertView是否有值，有值表示是重複使用的
         if (convertView == null) {
-            // 沒有值就要自己建立一個
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.goods_list_item, null);
         }
 
-        // 找到TextView
+        // 找到name and price TextView
         TextView name = (TextView) convertView.findViewById(R.id.name);
         TextView price = (TextView) convertView.findViewById(R.id.price);
-        // 取出文字
+        // 取出Good類別
+        Log.v("Position", Integer.toString(position));
         Good good = this.goods[position];
-        // 將文字內容設定給TextView
         name.setText(good.getName());
-        price.setText(good.getPrice());
-
+        price.setText(String.valueOf(good.getPrice()));
         // 找到ImageView
-        ImageView icon = (ImageView) convertView.findViewById(R.id.image);
-        // 依照位置算出對應的圖片
-
-        // ==================================================================================================
-        int resId = mIcons[position % mIcons.length];
-        // 將圖片設定給ImageView
-        icon.setImageResource(resId);
-
-        // 一定要將convertView回傳，供ListView呈現使用，並加入重用機制中
+        ImageView image = (ImageView) convertView.findViewById(R.id.image);
+        int resId = good.getImage();
+         image.setImageResource(good.getImage());
         return convertView;
     }
 
@@ -82,11 +78,27 @@ public class GoodsAdapter implements Adapter {
 
     @Override
     public int getViewTypeCount() {
-        return 0;
+        return 1;
     }
 
     @Override
     public boolean isEmpty() {
+        return false;
+    }
+
+    @Nullable
+    @Override
+    public CharSequence[] getAutofillOptions() {
+        return new CharSequence[0];
+    }
+
+    @Override
+    public boolean areAllItemsEnabled() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled(int position) {
         return false;
     }
 }
