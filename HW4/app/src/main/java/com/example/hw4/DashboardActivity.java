@@ -7,12 +7,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
 public class DashboardActivity extends AppCompatActivity {
     ListView goodsList;
+    ImageButton bi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +33,6 @@ public class DashboardActivity extends AppCompatActivity {
                 new Good("Mouse", 1000, R.drawable.mouse),
                 new Good("Keyboard", 1500, R.drawable.keyboard)
         };
-        GoodsAdapter adapter = new GoodsAdapter(goods);
-        goodsList.setAdapter(adapter);
-
         goodsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
@@ -42,6 +43,9 @@ public class DashboardActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        GoodsAdapter adapter = new GoodsAdapter(goods, this);
+        goodsList.setAdapter(adapter);
     }
 
 }

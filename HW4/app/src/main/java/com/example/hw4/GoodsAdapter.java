@@ -1,32 +1,26 @@
 package com.example.hw4;
 
+import android.content.Context;
 import android.database.DataSetObserver;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
-public class GoodsAdapter implements ListAdapter {
+public class GoodsAdapter extends BaseAdapter {
     private Good[] goods;
-
-    public GoodsAdapter(Good[] goods){
+    private Context context;
+    public GoodsAdapter(Good[] goods, Context context){
         super();
         this.goods = goods;
-    }
-
-       @Override
-    public void registerDataSetObserver(DataSetObserver observer) {
-
-    }
-
-    @Override
-    public void unregisterDataSetObserver(DataSetObserver observer) {
-
+        this.context = context;
     }
 
     @Override
@@ -41,62 +35,31 @@ public class GoodsAdapter implements ListAdapter {
 
     @Override
     public long getItemId(int position) {
-        return 0;
-    }
-
-    @Override
-    public boolean hasStableIds() {
-        return false;
+        return position;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // 檢查convertView是否有值，有值表示是重複使用的
-        if (convertView == null) {
-            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.goods_list_item, null);
-        }
+        LayoutInflater inflater = LayoutInflater.from(context);
+        LinearLayout itemlayout = null;
 
-        TextView name = (TextView) convertView.findViewById(R.id.name);
-        TextView price = (TextView) convertView.findViewById(R.id.price);
-        // 取出Good類別
+        if (convertView == null) {
+            itemlayout = (LinearLayout) inflater.inflate(R.layout.goods_list_item, null);
+        }else {
+            itemlayout = (LinearLayout) convertView;
+        }
         Good good = this.goods[position];
+        TextView name = (TextView) itemlayout.findViewById(R.id.name);
         name.setText(good.getName());
+
+        TextView price = (TextView) itemlayout.findViewById(R.id.price);
+        // 取出Good類別
         price.setText(String.valueOf(good.getPrice()));
         // 找到ImageView
-        ImageView image = (ImageView) convertView.findViewById(R.id.image);
-        int resId = good.getImage();
-         image.setImageResource(good.getImage());
-        return convertView;
-    }
+        ImageView image = (ImageView) itemlayout.findViewById(R.id.image);
+        image.setImageResource(good.getImage());
 
-    @Override
-    public int getItemViewType(int position) {
-        return 0;
-    }
-
-    @Override
-    public int getViewTypeCount() {
-        return 1;
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return false;
-    }
-
-    @Nullable
-    @Override
-    public CharSequence[] getAutofillOptions() {
-        return new CharSequence[0];
-    }
-
-    @Override
-    public boolean areAllItemsEnabled() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnabled(int position) {
-        return false;
+        return itemlayout;
     }
 }
