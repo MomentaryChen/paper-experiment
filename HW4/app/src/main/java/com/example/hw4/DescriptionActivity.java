@@ -11,28 +11,29 @@ import android.widget.TextView;
 
 
 public class DescriptionActivity extends AppCompatActivity {
-    TextView name;
-    TextView price;
-    ImageView image;
-    EditText description;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_description);
-        init();
+  TextView name;
+  TextView price;
+  ImageView image;
+  EditText description;
 
-    }
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_description);
+    init();
 
-    public void init(){
-        name = findViewById(R.id.description_name);
-        price = findViewById(R.id.description_price);
-        description = findViewById(R.id.description);
-        image = findViewById(R.id.description_image);
+  }
 
-        Intent intent = getIntent();
-        name.setText(intent.getStringExtra("name"));
-        price.setText(String.valueOf(intent.getIntExtra("price",0)));
-        image.setImageResource(intent.getIntExtra("image",0));
-        description.setText("  " + intent.getStringExtra("description"));
-    }
+  public void init() {
+    name = findViewById(R.id.description_name);
+    price = findViewById(R.id.description_price);
+    description = findViewById(R.id.description);
+    image = findViewById(R.id.description_image);
+
+    Intent intent = getIntent();
+    name.setText(intent.getStringExtra("name"));
+    price.setText(String.valueOf(intent.getIntExtra("price", 0)));
+    image.setImageResource(intent.getIntExtra("image", 0));
+    description.setText("  " + intent.getStringExtra("description"));
+  }
 }

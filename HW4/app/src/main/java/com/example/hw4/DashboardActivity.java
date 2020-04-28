@@ -15,39 +15,52 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 public class DashboardActivity extends AppCompatActivity {
-    ListView goodsList;
-    ImageButton bi;
-    public final Good [] goods = {
-            new Good("TV", 20000, "A television (also known as a TV) is a machine with a screen...",R.drawable.tv),
-            new Good("Computer", 30000, "A computer is a programmable device that stores, retrieves, and processes data...",R.drawable.computer),
-            new Good("Screen", 3500, "In a computer display , the screen is the physical surface on which visual information is presented...." ,R.drawable.screen),
-            new Good("Mouse", 1000,"A computer mouse is a handheld hardware input device that controls a cursor in a GUI and can move and select text, icons, files, and folders....", R.drawable.mouse),
-            new Good("Keyboard", 1500, "A computer keyboard is an input device used to enter characters and functions into the computer system by pressing buttons, or keys....",R.drawable.keyboard)
-    };
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
-        init();
-    }
+  ListView goodsList;
+  ImageButton bi;
+  public final Good[] goods = {
+    new Good("TV", 20000, "A television (also known as a TV) is a machine with a screen...",
+      R.drawable.tv),
+    new Good("Computer", 30000,
+      "A computer is a programmable device that stores, retrieves, and processes data...",
+      R.drawable.computer),
+    new Good("Screen", 3500,
+      "In a computer display , "
+        + "the screen is the physical surface on which visual information is presented....",
+      R.drawable.screen),
+    new Good("Mouse", 1000,
+      "A computer mouse is a handheld hardware input device that controls a "
+        + "cursor in a GUI and can move and select text, icons, files, and folders....",
+      R.drawable.mouse),
+    new Good("Keyboard", 1500,
+      "A computer keyboard is an input device used to enter characters and"
+        + " functions into the computer system by pressing buttons, or keys....",
+      R.drawable.keyboard)
+  };
 
-    private void init() {
-        goodsList = findViewById(R.id.goods);
-        goodsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position,
-                                    long id) {
-                Intent intent = new Intent(DashboardActivity.this, DescriptionActivity.class);
-                intent.putExtra("name", goods[position].getName());
-                intent.putExtra("price", goods[position].getPrice());
-                intent.putExtra("image", goods[position].getImage());
-                intent.putExtra("description", goods[position].getDescription());
-                startActivity(intent);
-            }
-        });
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_dashboard);
+    init();
+  }
 
-        GoodsAdapter adapter = new GoodsAdapter(goods, this);
-        goodsList.setAdapter(adapter);
-    }
+  private void init() {
+    goodsList = findViewById(R.id.goods);
+    goodsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+      @Override
+      public void onItemClick(AdapterView<?> parent, View view, int position,
+                              long id) {
+        Intent intent = new Intent(DashboardActivity.this, DescriptionActivity.class);
+        intent.putExtra("name", goods[position].getName());
+        intent.putExtra("price", goods[position].getPrice());
+        intent.putExtra("image", goods[position].getImage());
+        intent.putExtra("description", goods[position].getDescription());
+        startActivity(intent);
+      }
+    });
+
+    GoodsAdapter adapter = new GoodsAdapter(goods, this);
+    goodsList.setAdapter(adapter);
+  }
 
 }
