@@ -16,8 +16,7 @@
         android:layout_marginRight="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        >
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/description_image"
@@ -46,6 +45,7 @@
                 android:id="@+id/description_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Computer"
                 android:textSize="24dp" />
 
         </LinearLayout>
@@ -55,8 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/linearLayout"
-            >
+            app:layout_constraintTop_toBottomOf="@id/linearLayout">
 
             <TextView
                 android:id="@+id/textView"
@@ -69,6 +68,7 @@
                 android:id="@+id/description_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="20000"
                 android:textSize="24dp" />
 
         </LinearLayout>
@@ -95,6 +95,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/border"
                 android:ems="20"
+                android:text="Computer Description"
                 android:inputType="textMultiLine" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

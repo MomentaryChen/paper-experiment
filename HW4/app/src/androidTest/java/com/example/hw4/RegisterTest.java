@@ -35,7 +35,7 @@ public class RegisterTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.hw3", appContext.getPackageName());
+        assertEquals("com.example.hw4", appContext.getPackageName());
     }
 
     @Test
