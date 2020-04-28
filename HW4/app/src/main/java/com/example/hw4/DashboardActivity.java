@@ -18,11 +18,11 @@ public class DashboardActivity extends AppCompatActivity {
     ListView goodsList;
     ImageButton bi;
     public final Good [] goods = {
-            new Good("TV", 20000, "Test TV",R.drawable.tv),
-            new Good("Computer", 30000, "Test Computer",R.drawable.computer),
-            new Good("Screen", 3500, "Test Screen" ,R.drawable.screen),
-            new Good("Mouse", 1000,"Test Mouse", R.drawable.mouse),
-            new Good("Keyboard", 1500, "Test Keyboard",R.drawable.keyboard)
+            new Good("TV", 20000, "A television (also known as a TV) is a machine with a screen...",R.drawable.tv),
+            new Good("Computer", 30000, "A computer is a programmable device that stores, retrieves, and processes data...",R.drawable.computer),
+            new Good("Screen", 3500, "In a computer display , the screen is the physical surface on which visual information is presented...." ,R.drawable.screen),
+            new Good("Mouse", 1000,"A computer mouse is a handheld hardware input device that controls a cursor in a GUI and can move and select text, icons, files, and folders....", R.drawable.mouse),
+            new Good("Keyboard", 1500, "A computer keyboard is an input device used to enter characters and functions into the computer system by pressing buttons, or keys....",R.drawable.keyboard)
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {

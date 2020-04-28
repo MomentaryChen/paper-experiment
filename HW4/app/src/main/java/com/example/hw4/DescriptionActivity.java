@@ -33,6 +33,6 @@ public class DescriptionActivity extends AppCompatActivity {
         name.setText(intent.getStringExtra("name"));
         price.setText(String.valueOf(intent.getIntExtra("price",0)));
         image.setImageResource(intent.getIntExtra("image",0));
-        description.setText(intent.getStringExtra("description"));
+        description.setText("  " + intent.getStringExtra("description"));
     }
 }
