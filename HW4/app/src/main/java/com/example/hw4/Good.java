@@ -4,10 +4,12 @@ public class Good {
     private String name;
     private int price;
     private int image;
+    private String description;
 
-    public Good(String name, int price, int image) {
+    public Good(String name, int price, String description, int image) {
         this.name = name;
         this.price = price;
+        this.description = description;
         this.image = image;
     }
 
@@ -33,5 +35,13 @@ public class Good {
 
     public void setImage(int image) {
         this.image = image;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

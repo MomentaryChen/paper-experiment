@@ -17,6 +17,13 @@ import android.widget.ListView;
 public class DashboardActivity extends AppCompatActivity {
     ListView goodsList;
     ImageButton bi;
+    public final Good [] goods = {
+            new Good("TV", 20000, "Test TV",R.drawable.tv),
+            new Good("Computer", 30000, "Test Computer",R.drawable.computer),
+            new Good("Screen", 3500, "Test Screen" ,R.drawable.screen),
+            new Good("Mouse", 1000,"Test Mouse", R.drawable.mouse),
+            new Good("Keyboard", 1500, "Test Keyboard",R.drawable.keyboard)
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,20 +33,15 @@ public class DashboardActivity extends AppCompatActivity {
 
     private void init() {
         goodsList = findViewById(R.id.goods);
-        Good [] goods = {
-                new Good("TV", 20000, R.drawable.tv),
-                new Good("Computer", 30000, R.drawable.computer),
-                new Good("Screen", 3500, R.drawable.screen),
-                new Good("Mouse", 1000, R.drawable.mouse),
-                new Good("Keyboard", 1500, R.drawable.keyboard)
-        };
         goodsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-                Log.v("AAA","AAA");
                 Intent intent = new Intent(DashboardActivity.this, DescriptionActivity.class);
-//                intent.putExtra(EXTRA_MESSAGE, message);
+                intent.putExtra("name", goods[position].getName());
+                intent.putExtra("price", goods[position].getPrice());
+                intent.putExtra("image", goods[position].getImage());
+                intent.putExtra("description", goods[position].getDescription());
                 startActivity(intent);
             }
         });
