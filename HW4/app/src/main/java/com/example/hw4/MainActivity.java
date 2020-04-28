@@ -31,10 +31,10 @@ public class MainActivity extends AppCompatActivity {
         feedback = findViewById(R.id.feedback);
         setOnClickListener();
 
-        //  pass the login
-        account.setText("root@gmail.com");
-        password.setText("Zzxcv123456");
-        login.callOnClick();
+//         pass the login
+//        account.setText("root@gmail.com");
+//        password.setText("Zzxcv123456");
+//        login.callOnClick();
     }
     public void setOnClickListener() {
      register.setOnClickListener(new View.OnClickListener() {

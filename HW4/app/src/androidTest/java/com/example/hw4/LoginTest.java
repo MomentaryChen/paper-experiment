@@ -39,7 +39,7 @@ public class LoginTest {
 
     @Test
     public void loginFailure(){
-        TextView text= (TextView) mActivityRule.getActivity().findViewById(R.id.warning);
+        TextView text= (TextView) mActivityRule.getActivity().findViewById(R.id.feedback);
         onView(withId(R.id.login)) // Matcher
                 .perform(click()); // Action
         Spoon.screenshot( mActivityRule.getActivity(), "LoginFailure");
@@ -88,8 +88,6 @@ public class LoginTest {
                 .perform(click());
 
         // Step10 Change to dashboard
-        onView(withId(R.id.loginTextView)).check(matches(withText("Login Successful")));
-
         Spoon.screenshot( mActivityRule.getActivity(), "LoginSuccessful");
     }
 }
