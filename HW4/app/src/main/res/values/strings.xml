@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HW4</string>
+    <string name="app_name">HW3</string>
     <string name="account">Account</string>
     <string name="password">Password</string>
 
@@ -8,7 +8,7 @@
 
     <string name="error">Account error or password error</string>
 
-    <string name="check">Comfirm:</string>
+    <string name="check">Confirm:</string>
     <string name="gender">Gender</string>
     <string name="interest">Interest</string>
 

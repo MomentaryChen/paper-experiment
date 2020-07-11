@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Registration</string>
+    <string name="account">Account:</string>
+    <string name="password">Password:</string>
+    <string name="check">Comfirm:</string>
+    <string name="gender">Gender</string>
+    <string name="interest">Interest</string>
+
+    <string name="man">Man</string>
+    <string name="woman">Woman</string>
+
+    <string name="game">Game</string>
+    <string name="sleep">Sleep</string>
+    <string name="daze">Daze</string>
+    <string name="other">Other</string>
+
+    <string name="register">Register</string>
+    <string name="reset">Reset</string>
+
+    <string name="accountNullWarning">Account cannot be empty.</string>
+    <string name="accountWarning">Account error format</string>
+
+    <string name="passwordNullWarning">Password cannot be empty.</string>
+    <string name="passwordLenWarning">Password length is greater than 8</string>
+    <string name="passwordIncludeNumberWarning">Password need include a number or more</string>
+    <string name="passwordIncludeCapitalWarning">Password need include a capital English or more</string>
+
+    <string name="comfirmNullWarning">Comfirm password cannot be empty.</string>
+    <string name="comfirmWarning">Comfirm password is not the same.</string>
+
+    <string name="InterestWarning">Choose one interest</string>
+
+
+</resources>
