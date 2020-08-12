@@ -63,7 +63,36 @@ public class DashboardTest {
   }
 
   @Test
+  public void clickListViewByPositionZero() {
+    onData(anything()).atPosition(0).perform(click());
+    onView(withId(R.id.description_name))
+      .check(matches(withText(containsString("TV"))));
+    onView(withId(R.id.description))
+      .check(matches(withText(containsString("TV"))));
+    try {
+      Thread.sleep(1000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+
+  @Test
+  public void clickListViewByPositionOne() {
+    onData(anything()).atPosition(1).perform(click());
+    onView(withId(R.id.description_name))
+      .check(matches(withText(containsString("Computer"))));
+    onView(withId(R.id.description))
+      .check(matches(withText(containsString("computer"))));
+    try {
+      Thread.sleep(1000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+
+  @Test
   public void clickListViewByPositionTwo() {
+
     onData(anything()).atPosition(2).perform(click());
     onView(withId(R.id.description_name))
       .check(matches(withText(containsString("Screen"))));
@@ -74,7 +103,21 @@ public class DashboardTest {
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
-    Spoon.screenshot(getActivityInstance(), "hasScreen");
+  }
+
+  @Test
+  public void clickListViewByPositionThree() {
+    onData(anything()).atPosition(3).perform(click());
+    onView(withId(R.id.description_name))
+      .check(matches(withText(containsString("Mouse"))));
+    onView(withId(R.id.description))
+      .check(matches(withText(containsString("mouse"))));
+
+    try {
+      Thread.sleep(1000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
   }
 
   @Test
@@ -89,6 +132,6 @@ public class DashboardTest {
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
-    Spoon.screenshot(getActivityInstance(), "hasKeyboard");
   }
+
 }
